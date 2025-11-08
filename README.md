@@ -10,6 +10,7 @@ https://github.com/Sanddino00/ORFIX_for_Complex_Mods
 
 The other fixes are made by 
 
+
 SilentNightSound 
 
 57releaseversion - Genshin Fix all character mods    https://gamebanana.com/tools/16433
@@ -42,3 +43,6 @@ Wuwa_Mod_Fixer    https://github.com/Moonholder/Wuwa_Mod_Fixer/releases
 shaojiang
 
 zzz_fix20g_by_hc_python - ZZZ 2.0 Fix; Slot Fix-Texture and Lighting Fixes   https://gamebanana.com/tools/20010#FileInfo_1462243
+
+
+You can add your own fixes to do that simply drop them in the right subfolder in the resources folder and press reload. 
