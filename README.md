@@ -117,7 +117,7 @@ https://github.com/Sanddino00/ORFIX_for_Complex_Mods
 .
 
 
-I don't own the other fixes so if anyone as a problem with me uploading it please contact me. (I will add my discord somewhere here)
+I don't own the other fixes so if anyone as a problem with me uploading it please contact me. (I will add my discord somewhere here: ._______._._______.1)
 
 The other fixes are made by 
 
