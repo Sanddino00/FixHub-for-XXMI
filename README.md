@@ -45,4 +45,12 @@ shaojiang
 zzz_fix20g_by_hc_python - ZZZ 2.0 Fix; Slot Fix-Texture and Lighting Fixes   https://gamebanana.com/tools/20010#FileInfo_1462243
 
 
+
 You can add your own fixes to do that simply drop them in the right subfolder in the resources folder and press reload. 
+
+Usage:
+Select the game
+Select the folder of a mod 
+Select a script and press run
+If the script asks you to press y n in the consol do so 
+then the script finishes press enter and select ok on the succsessfully ran pop up 
