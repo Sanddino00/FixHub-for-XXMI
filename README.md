@@ -15,7 +15,7 @@ Select the folder of a mod
 
 Select a script and press run
 
-If the script asks you to press y n in the consol do so 
+If the script asks you to press y n in the console do so 
 
 then the script finishes press enter and select ok on the succsessfully ran pop up 
 
@@ -37,7 +37,7 @@ https://github.com/Sanddino00/Gi-FaceFix
 https://github.com/Sanddino00/ORFIX_for_Complex_Mods
 
 
-
+I don't own the other fixes so if anyone as a problem with me uploading it please contact me. (I will add my discord somewhere here)
 The other fixes are made by 
 
 
