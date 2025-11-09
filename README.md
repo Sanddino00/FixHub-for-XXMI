@@ -1,6 +1,35 @@
 This is a tool to manage and use the fix tool for Genshin, Star Rail, Wuwa, ZZZ and Hi3
 <img width="1821" height="693" alt="Screenshot 2025-11-09 010203" src="https://github.com/user-attachments/assets/f2c04518-dcb3-4de2-92d0-f2403bb04841" />
 
+
+
+
+
+You can add your own fixes to do that simply drop them in the right subfolder in the resources folder and press reload. 
+
+Usage:
+
+Select the game
+
+Select the folder of a mod 
+
+Select a script and press run
+
+If the script asks you to press y n in the consol do so 
+
+then the script finishes press enter and select ok on the succsessfully ran pop up 
+
+
+<img width="1821" height="693" alt="Screenshot 2025-11-09 010203" src="https://github.com/user-attachments/assets/6f182a25-ad9c-418d-8f00-b205de7e2a12" />
+<img width="604" height="628" alt="Screenshot 2025-11-09 010209" src="https://github.com/user-attachments/assets/efb0b0d9-f9c1-4d1b-b481-9b7e206adfb6" />
+<img width="555" height="581" alt="Screenshot 2025-11-09 010219" src="https://github.com/user-attachments/assets/1f5b4725-309d-4e02-ad71-68ef6d16bfd0" />
+<img width="403" height="551" alt="Screenshot 2025-11-09 010226" src="https://github.com/user-attachments/assets/3fb79099-840b-426a-a49c-03617bcd2dae" />
+<img width="569" height="591" alt="Screenshot 2025-11-09 010349" src="https://github.com/user-attachments/assets/00150ba1-d294-4a14-9436-8aa7d688c53d" />
+<img width="1102" height="589" alt="Screenshot 2025-11-09 010401" src="https://github.com/user-attachments/assets/0853d7e1-fa8d-4187-bd96-117745c746f2" />
+<img width="559" height="567" alt="Screenshot 2025-11-09 010410" src="https://github.com/user-attachments/assets/c362ed0f-45b1-4407-8697-54ee8e596fc7" />
+<img width="342" height="268" alt="Screenshot 2025-11-09 010427" src="https://github.com/user-attachments/assets/c1dd0892-a248-4afd-9427-18ae0bafdcd0" />
+
+
 I made the FaceFix and ORFixApplier for Complex mods. 
 
 https://github.com/Sanddino00/Gi-FaceFix
@@ -40,26 +69,6 @@ Moonholder
 
 Wuwa_Mod_Fixer    https://github.com/Moonholder/Wuwa_Mod_Fixer/releases
 
-
 shaojiang
 
 zzz_fix20g_by_hc_python - ZZZ 2.0 Fix; Slot Fix-Texture and Lighting Fixes   https://gamebanana.com/tools/20010#FileInfo_1462243
-
-
-
-You can add your own fixes to do that simply drop them in the right subfolder in the resources folder and press reload. 
-
-Usage:
-Select the game
-Select the folder of a mod 
-Select a script and press run
-If the script asks you to press y n in the consol do so 
-then the script finishes press enter and select ok on the succsessfully ran pop up 
-<img width="1821" height="693" alt="Screenshot 2025-11-09 010203" src="https://github.com/user-attachments/assets/6f182a25-ad9c-418d-8f00-b205de7e2a12" />
-<img width="604" height="628" alt="Screenshot 2025-11-09 010209" src="https://github.com/user-attachments/assets/efb0b0d9-f9c1-4d1b-b481-9b7e206adfb6" />
-<img width="555" height="581" alt="Screenshot 2025-11-09 010219" src="https://github.com/user-attachments/assets/1f5b4725-309d-4e02-ad71-68ef6d16bfd0" />
-<img width="403" height="551" alt="Screenshot 2025-11-09 010226" src="https://github.com/user-attachments/assets/3fb79099-840b-426a-a49c-03617bcd2dae" />
-<img width="569" height="591" alt="Screenshot 2025-11-09 010349" src="https://github.com/user-attachments/assets/00150ba1-d294-4a14-9436-8aa7d688c53d" />
-<img width="1102" height="589" alt="Screenshot 2025-11-09 010401" src="https://github.com/user-attachments/assets/0853d7e1-fa8d-4187-bd96-117745c746f2" />
-<img width="559" height="567" alt="Screenshot 2025-11-09 010410" src="https://github.com/user-attachments/assets/c362ed0f-45b1-4407-8697-54ee8e596fc7" />
-<img width="342" height="268" alt="Screenshot 2025-11-09 010427" src="https://github.com/user-attachments/assets/c1dd0892-a248-4afd-9427-18ae0bafdcd0" />
