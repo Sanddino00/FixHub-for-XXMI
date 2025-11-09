@@ -4,6 +4,7 @@ This is a tool to manage and use the fix tool for Genshin, Star Rail, Wuwa, ZZZ 
 
 
 
+Please check out the original creators of the fix tools and support them if possible. I included the links to the original download pages of tools used by my tool in the credits section.
 
 You can add your own fixes to do that simply drop them in the right subfolder in the resources folder and press reload. 
 
@@ -15,10 +16,25 @@ Select the folder of a mod
 
 Select a script and press run
 
-If the script asks you to press y n in the console do so 
+If the script may ask you to press y n in the console 
+
+follow what the script says
 
 then the script finishes press enter and select ok on the succsessfully ran pop up 
 
+
+
+
+
+
+For more info on the FaceFix or ORFixapplier for Complex Mods go here:
+
+https://github.com/Sanddino00/Gi-FaceFix
+
+https://github.com/Sanddino00/ORFIX_for_Complex_Mods
+
+
+For more info of the other mods use the links in the Credits section.
 
 <img width="1821" height="693" alt="Screenshot 2025-11-09 010203" src="https://github.com/user-attachments/assets/6f182a25-ad9c-418d-8f00-b205de7e2a12" />
 <img width="604" height="628" alt="Screenshot 2025-11-09 010209" src="https://github.com/user-attachments/assets/efb0b0d9-f9c1-4d1b-b481-9b7e206adfb6" />
@@ -30,7 +46,14 @@ then the script finishes press enter and select ok on the succsessfully ran pop 
 <img width="342" height="268" alt="Screenshot 2025-11-09 010427" src="https://github.com/user-attachments/assets/c1dd0892-a248-4afd-9427-18ae0bafdcd0" />
 
 
-I made the FaceFix and ORFixApplier for Complex mods. 
+
+
+
+Credits:
+
+
+
+FaceFix and ORFixApplier for Complex mods made by me.
 
 https://github.com/Sanddino00/Gi-FaceFix
 
@@ -38,6 +61,7 @@ https://github.com/Sanddino00/ORFIX_for_Complex_Mods
 
 
 I don't own the other fixes so if anyone as a problem with me uploading it please contact me. (I will add my discord somewhere here)
+
 The other fixes are made by 
 
 
@@ -72,3 +96,6 @@ Wuwa_Mod_Fixer    https://github.com/Moonholder/Wuwa_Mod_Fixer/releases
 shaojiang
 
 zzz_fix20g_by_hc_python - ZZZ 2.0 Fix; Slot Fix-Texture and Lighting Fixes   https://gamebanana.com/tools/20010#FileInfo_1462243
+
+Some of the tools were created by multiple of these people but I didn't put everyone everywhere because it would make the side to long.
+Please check out the original creator of the tools and support them if possible 
