@@ -26,8 +26,7 @@ Features:
 
 -Update funktion for the tool itself and the resources
 
--The swap saver script if you use a mod loader like jasm and switch the mods back and forth you don't need to retoggle them simply toggle the mod how you want it, press f10 and run the script in the folder of the mod. It should now remember the toggle state if it is in even if you rename it to disabled to switch the mod and reanable it later (I didn't make the swap saver script)
-
+-Included the swap saver script if you use a mod loader like jasm and switch the mods back and forth you don't need to retoggle them simply toggle the mod how you want it, press f10 and run the script in the folder of the mod. It should now remember the toggle state it is in even if you rename / disabled it to switch the mod.
 
 .
 .
