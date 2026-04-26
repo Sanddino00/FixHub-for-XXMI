@@ -57,11 +57,10 @@ Select the folder of a mod
 
 Select a script and press run
 
-If the script may ask you to press y n in the console 
+The script may ask you to press y n in the console 
 
-follow what the script says
 
-then the script finishes press enter and select ok on the succsessfully ran pop up 
+After the script finishes press enter and select ok on the pop up 
 
 .
 .
