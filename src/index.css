@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --text: #11161f;
+  --text-soft: #344153;
+  --muted: #5a6c82;
+  --bg: #f2f8ff;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border: #c9d8e7;
+  --input-bg: #f9fcff;
+  --button-bg: #0f7a67;
+  --button-fg: #f4fffd;
+  --hero-start: #ffffff;
+  --hero-end: #e5f3ee;
+  --pill-bg: #eff8f6;
+  --pill-fg: #0a5a4b;
+}
+
+:root[data-theme='dark'] {
+  --text: #eaf1ff;
+  --text-soft: #b8c6df;
+  --muted: #92a5c5;
+  --bg: #0f1726;
+  --card-bg: rgba(20, 32, 52, 0.8);
+  --border: #334766;
+  --input-bg: #18283f;
+  --button-bg: #38a08b;
+  --button-fg: #07150f;
+  --hero-start: #142237;
+  --hero-end: #173228;
+  --pill-bg: #1d3c33;
+  --pill-fg: #9df1d9;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(34, 139, 230, 0.1), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(40, 167, 69, 0.12), transparent 38%),
+    var(--bg);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  color: var(--text);
+}

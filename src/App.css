@@ -1,0 +1,289 @@
+.shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  min-width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  padding: 0;
+}
+
+.icon-btn.active {
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+
+.icon-btn.notify {
+  position: relative;
+}
+
+.notif-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ff6a3d;
+  box-shadow: 0 0 0 2px var(--card-bg);
+}
+
+.drop-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(3, 13, 26, 0.58);
+  color: #eaf6ff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.panel {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-main {
+  grid-template-columns: 2fr 1fr;
+}
+
+.settings-grid {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: enter 0.55s ease-out;
+}
+
+.status-card {
+  justify-content: space-between;
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+select,
+input,
+button {
+  font: inherit;
+}
+
+select,
+input {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  padding: 10px 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.target-line {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--input-bg);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.game-btn {
+  border-radius: 999px;
+}
+
+.game-btn.active {
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+
+.fix-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.fix-item {
+  width: 100%;
+  text-align: left;
+}
+
+.fix-item.active {
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+
+.fix-item.empty {
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--muted);
+}
+
+.field-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  width: fit-content;
+}
+
+.badge.ok {
+  background: rgba(55, 150, 95, 0.16);
+  color: #2f7a50;
+}
+
+.badge.warn {
+  background: rgba(216, 117, 30, 0.17);
+  color: #9b4f00;
+}
+
+.badge.info {
+  background: rgba(140, 160, 190, 0.2);
+  color: var(--text-soft);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+.path-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 950px) {
+  .grid-main,
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    padding: 16px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+}
