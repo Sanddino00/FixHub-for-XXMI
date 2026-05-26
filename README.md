@@ -4,7 +4,7 @@ This is a tool to manage and use the fix tools for Genshin, Star Rail, Wuwa, ZZZ
 <img width="1244" height="930" alt="Screenshot 2026-05-17 145328" src="https://github.com/user-attachments/assets/394dd62a-3712-413e-91e0-2e26c7c9f53b" />
 <img width="1239" height="924" alt="Screenshot 2026-05-17 145340" src="https://github.com/user-attachments/assets/938676d8-449a-4535-be60-13e304a5959f" />
 
-You need python for the scripts either install it yourself or use the all in one which includes a portable version.
+You need python for the scripts
 Please check out the original creators of the fix tools and support them if possible. I included the links to the original download pages in the credits section.
 
 Usage:
@@ -87,4 +87,4 @@ Some of the tools were created by multiple of these people but I didn't put ever
 
 Please check out the original creator of the tools and support them if possible 
 
-I may stop supporting this tool at some point so feel free to modify it in anyway you like.
+Feel free to modify it in anyway you like.
