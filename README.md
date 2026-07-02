@@ -81,7 +81,8 @@ shaojiang
 zzz_fix20g_by_hc_python - ZZZ 2.0 Fix; Slot Fix-Texture and Lighting Fixes   https://gamebanana.com/tools/20010#FileInfo_1462243
 
 If I forgot to link something please let me know so I can fix it.
-The intel fix for hsr is from a discord server, I need to look up from where again.
+The intel fix for hsr:
+https://discord.com/channels/1313561268266733729/1362084819273519498/1437263185974526104
 
 Some of the tools were created by multiple of these people but I didn't put everyone everywhere because it would make the side to long.
 
