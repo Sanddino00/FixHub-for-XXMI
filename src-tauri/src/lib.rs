@@ -3,6 +3,8 @@ use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
 use std::process::Command;
+use std::sync::{Mutex, OnceLock};
+use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
 use serde::{Deserialize, Serialize};
 
@@ -10,6 +12,31 @@ const APP_RELEASE_API: &str = "https://api.github.com/repos/Sanddino00/FixHub-fo
 const RESOURCES_RELEASE_API: &str =
   "https://api.github.com/repos/Sanddino00/Resources-for-Fixmanager-and-Modmanager/releases/latest";
 const RESOURCES_ZIP_NAME: &str = "resources_f_m.zip";
+const RELEASE_CACHE_TTL: Duration = Duration::from_secs(300);
+const RELEASE_MIN_REQUEST_INTERVAL: Duration = Duration::from_secs(20);
+
+#[derive(Debug, Clone)]
+struct ReleaseCacheEntry {
+  fetched_at_epoch_secs: u64,
+  last_attempt_epoch_secs: u64,
+  cooldown_until_epoch_secs: u64,
+  etag: Option<String>,
+  release: Option<ReleaseResponse>,
+}
+
+impl Default for ReleaseCacheEntry {
+  fn default() -> Self {
+    Self {
+      fetched_at_epoch_secs: 0,
+      last_attempt_epoch_secs: 0,
+      cooldown_until_epoch_secs: 0,
+      etag: None,
+      release: None,
+    }
+  }
+}
+
+static RELEASE_CACHE: OnceLock<Mutex<HashMap<String, ReleaseCacheEntry>>> = OnceLock::new();
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct GameInfo {
@@ -233,23 +260,130 @@ fn find_game(game_key: &str) -> Option<GameInfo> {
 }
 
 fn fetch_latest_release(api_url: &str) -> Result<ReleaseResponse, String> {
+  let now = now_epoch_secs();
+  let cache_lock = RELEASE_CACHE.get_or_init(|| Mutex::new(HashMap::new()));
+
+  let snapshot = {
+    let mut cache = cache_lock
+      .lock()
+      .map_err(|_| "Release cache lock poisoned".to_string())?;
+    let entry = cache
+      .entry(api_url.to_string())
+      .or_insert_with(ReleaseCacheEntry::default);
+
+    if entry.cooldown_until_epoch_secs > now {
+      if let Some(cached) = entry.release.clone() {
+        return Ok(cached);
+      }
+      let wait = entry.cooldown_until_epoch_secs.saturating_sub(now);
+      return Err(format!(
+        "GitHub API is temporarily rate-limited. Retry in ~{wait}s."
+      ));
+    }
+
+    if let Some(cached) = entry.release.clone() {
+      let cache_age = now.saturating_sub(entry.fetched_at_epoch_secs);
+      if cache_age <= RELEASE_CACHE_TTL.as_secs() {
+        return Ok(cached);
+      }
+
+      let since_attempt = now.saturating_sub(entry.last_attempt_epoch_secs);
+      if since_attempt < RELEASE_MIN_REQUEST_INTERVAL.as_secs() {
+        return Ok(cached);
+      }
+    }
+
+    entry.last_attempt_epoch_secs = now;
+    entry.clone()
+  };
+
   let client = reqwest::blocking::Client::builder()
     .build()
     .map_err(|e| format!("Failed to build HTTP client: {e}"))?;
 
-  let response = client
+  let mut request = client
     .get(api_url)
-    .header("User-Agent", "FixManager-Tauri")
+    .header("User-Agent", "FixManager-Tauri");
+
+  if let Some(etag) = snapshot.etag.as_deref() {
+    request = request.header(reqwest::header::IF_NONE_MATCH, etag);
+  }
+
+  let response = request
     .send()
     .map_err(|e| format!("Failed to fetch latest release: {e}"))?;
+
+  if response.status() == reqwest::StatusCode::NOT_MODIFIED {
+    if let Some(cached) = snapshot.release {
+      let mut cache = cache_lock
+        .lock()
+        .map_err(|_| "Release cache lock poisoned".to_string())?;
+      if let Some(entry) = cache.get_mut(api_url) {
+        entry.fetched_at_epoch_secs = now;
+        entry.cooldown_until_epoch_secs = 0;
+      }
+      return Ok(cached);
+    }
+  }
+
+  if response.status() == reqwest::StatusCode::FORBIDDEN || response.status() == reqwest::StatusCode::TOO_MANY_REQUESTS {
+    let retry_after = response
+      .headers()
+      .get(reqwest::header::RETRY_AFTER)
+      .and_then(|v| v.to_str().ok())
+      .and_then(|s| s.trim().parse::<u64>().ok())
+      .unwrap_or(120);
+
+    let mut cache = cache_lock
+      .lock()
+      .map_err(|_| "Release cache lock poisoned".to_string())?;
+    if let Some(entry) = cache.get_mut(api_url) {
+      entry.cooldown_until_epoch_secs = now.saturating_add(retry_after);
+      if let Some(cached) = entry.release.clone() {
+        return Ok(cached);
+      }
+    }
+
+    return Err(format!(
+      "Release API temporarily rate-limited (HTTP {}). Retry in ~{retry_after}s.",
+      response.status()
+    ));
+  }
 
   if !response.status().is_success() {
     return Err(format!("Release API returned HTTP {}", response.status()));
   }
 
-  response
+  let etag = response
+    .headers()
+    .get(reqwest::header::ETAG)
+    .and_then(|v| v.to_str().ok())
+    .map(|s| s.to_string());
+
+  let release = response
     .json::<ReleaseResponse>()
-    .map_err(|e| format!("Failed to parse release response: {e}"))
+    .map_err(|e| format!("Failed to parse release response: {e}"))?;
+
+  {
+    let mut cache = cache_lock
+      .lock()
+      .map_err(|_| "Release cache lock poisoned".to_string())?;
+    if let Some(entry) = cache.get_mut(api_url) {
+      entry.fetched_at_epoch_secs = now;
+      entry.cooldown_until_epoch_secs = 0;
+      entry.etag = etag;
+      entry.release = Some(release.clone());
+    }
+  }
+
+  Ok(release)
+}
+
+fn now_epoch_secs() -> u64 {
+  SystemTime::now()
+    .duration_since(UNIX_EPOCH)
+    .map(|d| d.as_secs())
+    .unwrap_or(0)
 }
 
 fn compare_versions(v_local: &str, v_online: &str) -> bool {
