@@ -40,7 +40,10 @@ https://github.com/Sanddino00/Gi-FaceFix
 https://github.com/Sanddino00/ORFIX_for_Complex_Mods
 
 
-I don't own the other fixes so if anyone as a problem with me uploading it please contact me. DC:  ._______._._______.1
+I don't own the other fixes so if anyone as a problem with me uploading it please contact me. DC: 
+<img width="176" height="203" alt="image" src="https://github.com/user-attachments/assets/deba25e1-2763-496e-9ce2-c8d521c1adb4" />
+<img width="291" height="206" alt="image" src="https://github.com/user-attachments/assets/d501ee5a-cf95-4d38-9559-efd93eb15d92" />
+
 
 The other fixes are made by 
 
